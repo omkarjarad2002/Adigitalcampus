@@ -4,9 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jaradomkar.realtimechat.model.LoginData
-import com.jaradomkar.realtimechat.model.Post
-import com.jaradomkar.realtimechat.model.RegisterData
+import com.jaradomkar.realtimechat.model.*
 import com.jaradomkar.realtimechat.repository.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -15,8 +13,10 @@ class MainViewModel(private val repository: Repository):ViewModel() {
 
     val myResponse: MutableLiveData<Response<Post>> = MutableLiveData()
     val myResponse2: MutableLiveData<Response<Post>> = MutableLiveData()
-    val loginResponse: MutableLiveData<Response<LoginData>> = MutableLiveData()
+    val loginResponse: MutableLiveData<Response<LoginResponce>> = MutableLiveData()
     val registerResponse: MutableLiveData<Response<RegisterData>> = MutableLiveData()
+    val emailVerificationResponse: MutableLiveData<Response<EmailVerificationOtpResponse>> = MutableLiveData()
+    val changedPassResponse: MutableLiveData<Response<ChangedPasswordResponse>> = MutableLiveData()
 
     fun pushPost(post:Post){
         viewModelScope.launch {
@@ -24,10 +24,17 @@ class MainViewModel(private val repository: Repository):ViewModel() {
             myResponse.value = response
         }
     }
-    fun pushLoginData(data: LoginData){
+    fun pushLoginData(post:LoginData){
         viewModelScope.launch {
-            val response: Response<LoginData> = repository.pushLoginData(data)
+            val response: Response<LoginResponce> = repository.pushLoginData(post)
             loginResponse.value = response
+        }
+    }
+
+    fun pushEmailVerification(post:EmailVerificationData){
+        viewModelScope.launch {
+            val response: Response<EmailVerificationOtpResponse> = repository.pushEmailVerification(post)
+            emailVerificationResponse.value = response
         }
     }
 
@@ -38,10 +45,16 @@ class MainViewModel(private val repository: Repository):ViewModel() {
         }
     }
 
-    fun pushRegisterData(data: RegisterData){
+    fun pushRegisterData(post:RegisterData){
         viewModelScope.launch {
-            val response: Response<RegisterData> = repository.pushRegisterData(data)
+            val response: Response<RegisterData> = repository.pushRegisterData(post)
             registerResponse.value = response
+        }
+    }
+    fun pushChangedPassword(post:ChangePasswordData){
+        viewModelScope.launch {
+            val response: Response<ChangedPasswordResponse> = repository.pushChangedPassword(post)
+            changedPassResponse.value = response
         }
     }
 

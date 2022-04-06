@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.jaradomkar.realtimechat.model.LoginData
+import com.jaradomkar.realtimechat.model.Post
 import com.jaradomkar.realtimechat.model.RegisterData
 import com.jaradomkar.realtimechat.repository.Repository
 
@@ -19,6 +22,7 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var editPhone:EditText
     private lateinit var editBranch:EditText
     private lateinit var editYear:EditText
+    private lateinit var backArrow:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
@@ -32,27 +36,41 @@ class RegistrationActivity : AppCompatActivity() {
         editPhone = findViewById(R.id.edit_phone)
         editBranch = findViewById(R.id.edit_branch)
         editYear = findViewById(R.id.edit_year)
+        backArrow = findViewById(R.id.back_arrow)
 
-        savebutton.setOnClickListener{
-            val intent = Intent(this@RegistrationActivity,MainActivity::class.java)
-            startActivity(intent)
-        }
+
 
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this@RegistrationActivity,viewModelFactory).get(MainViewModel::class.java)
 
         savebutton.setOnClickListener{
-//            val name = editName.text.toString()
-//            val email = editEmail.text.toString()
-//            val phone = editPhone.text.toString().toLong()
-//            val branch = editBranch.text.toString()
-//            val year = editYear.text.toString().toInt()
-//
-//            viewModel.pushRegisterData(data = RegisterData(name,email,phone,branch,year))
+            val name = editName.text.toString()
+            val email = editEmail.text.toString()
+            val phone = editPhone.text.toString().toLong()
+            val branch = editBranch.text.toString()
+            val year = editYear.text.toString().toInt()
 
-            val intent =Intent(this@RegistrationActivity,MainActivity::class.java)
+            val data = RegisterData(name,email,phone,branch,year)
+            viewModel.pushRegisterData(data)
+
+        }
+
+        backArrow.setOnClickListener{
+            val intent = Intent(this@RegistrationActivity,SignUp::class.java);
             startActivity(intent)
+        }
+
+        viewModel.registerResponse.observe(this@RegistrationActivity) { response ->
+            if (response.isSuccessful) {
+                val intent = Intent(this@RegistrationActivity, MainActivity::class.java)
+                startActivity(intent)
+
+                Toast.makeText(this@RegistrationActivity, response.toString(), Toast.LENGTH_LONG).show()
+
+            } else {
+                Toast.makeText(this@RegistrationActivity, response.toString(), Toast.LENGTH_LONG).show()
+            }
         }
 
     }

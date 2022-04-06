@@ -4,23 +4,31 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/drawable/button_background.xml" value="0.128" />
+        <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/drawable/ic_baseline_batch_prediction_24.xml" value="0.125" />
+        <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.125" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1345" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/drawable/profile_pic.xml" value="0.1345" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/drawable/profile_pic_background.xml" value="0.1345" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.313671875" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.1875" />
+        <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_change_password.xml" value="0.25" />
+        <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_change_password_success.xml" value="0.25" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_management.xml" value="0.25" />
+        <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_registration.xml" value="0.25" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_scrolling.xml" value="0.25" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_student_sign_up.xml" value="0.2" />
+        <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_teacher.xml" value="0.13489583333333333" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/activity_teacher_sign_up.xml" value="0.25" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/content_scrolling.xml" value="0.1" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/layout/nav_header.xml" value="0.2" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/menu/menu_scrolling.xml" value="0.152" />
         <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/menu/nav_menu.xml" value="0.264" />
+        <entry key="..\:/Users/omkar/AndroidStudioProjects/RealtimeChat/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1315" />
       </map>
     </option>
   </component>

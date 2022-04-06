@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RealtimeChat">
         <activity
+            android:name=".ChangePasswordSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TeacherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ManagementActivity"
+            android:exported="false" />
+        <activity
             android:name=".ScrollingActivity"
             android:exported="false"
             android:label="@string/title_activity_scrolling"
@@ -33,7 +48,7 @@
             android:exported="false" />
         <activity
             android:name=".Login"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />

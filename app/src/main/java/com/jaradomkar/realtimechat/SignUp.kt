@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.jaradomkar.realtimechat.model.Post
@@ -18,6 +19,7 @@ class SignUp : AppCompatActivity() {
     private lateinit var editPassword: EditText
     private lateinit var editCPassword:EditText
     private lateinit var signupButtonR:Button
+    private lateinit var backArrow:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -30,6 +32,7 @@ class SignUp : AppCompatActivity() {
         editPassword = findViewById(R.id.edit_password)
         editCPassword = findViewById(R.id.edit_cpassword)
         signupButtonR = findViewById(R.id.edit_signup_btn_student)
+        backArrow = findViewById(R.id.back_arrow)
 
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
@@ -43,14 +46,19 @@ class SignUp : AppCompatActivity() {
 
             val data = Post(email,password,cpassword)
             viewModel.pushPost(data)
+        }
 
+        backArrow.setOnClickListener{
+            val intent = Intent(this@SignUp,Login::class.java)
+            startActivity(intent)
         }
 
         viewModel.myResponse.observe(this@SignUp) { responce ->
             if (responce.isSuccessful) {
-                Toast.makeText(this@SignUp, responce.toString(), Toast.LENGTH_LONG).show()
                 val intent = Intent(this@SignUp, RegistrationActivity::class.java)
                 startActivity(intent)
+
+                Toast.makeText(this@SignUp, responce.toString(), Toast.LENGTH_LONG).show()
 
             } else {
                 Toast.makeText(this@SignUp, responce.toString(), Toast.LENGTH_LONG).show()

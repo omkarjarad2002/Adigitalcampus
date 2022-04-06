@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,response.toString(),Toast.LENGTH_SHORT).show()
         }
         }
+
+
 
 
         //set navigation menu code
@@ -73,7 +76,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

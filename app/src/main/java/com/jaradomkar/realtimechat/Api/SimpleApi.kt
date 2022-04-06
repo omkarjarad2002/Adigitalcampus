@@ -1,8 +1,7 @@
 package com.jaradomkar.realtimechat.Api
 
-import com.jaradomkar.realtimechat.model.LoginData
-import com.jaradomkar.realtimechat.model.Post
-import com.jaradomkar.realtimechat.model.RegisterData
+import com.jaradomkar.realtimechat.model.*
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -18,12 +17,22 @@ interface SimpleApi {
         @Body post: Post
     ): Response<Post>
 
-    @POST("/login")
+    @POST("emailSendForOtp")
+    suspend fun pushEmailVerification(
+        @Body post: EmailVerificationData
+    ): Response<EmailVerificationOtpResponse>
+
+    @POST("emailSendForOtp")
+    suspend fun pushChangedPassword(
+        @Body post: ChangePasswordData
+    ): Response<ChangedPasswordResponse>
+
+    @POST("login")
     suspend fun pushLoginData(
         @Body post: LoginData
-    ): Response<LoginData>
+    ): Response<LoginResponce>
 
-    @POST("/register")
+    @POST("register")
     suspend fun pushRegisterData(
         @Body post: RegisterData
     ): Response<RegisterData>

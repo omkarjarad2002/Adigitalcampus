@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".RegistrationActivity">
 
+    <LinearLayout
+        android:id="@+id/back_arrow_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_baseline_arrow_back_24"/>
+
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/registration_logo"
         android:layout_width="match_parent"
@@ -13,9 +31,10 @@
         android:textStyle="bold"
         android:textSize="25dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:hint="Registration"
+        android:layout_toRightOf="@+id/back_arrow_layout"
         android:paddingLeft="10dp"
         android:textColorHint="@color/black" />
     <EditText
