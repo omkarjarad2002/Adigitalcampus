@@ -44,7 +44,6 @@ class ProfileActivity : AppCompatActivity() {
         viewModel.pushEmailForUserInfo(userData)
 
 
-
         backArrow=findViewById(R.id.back_arrow)
         changePassword=findViewById(R.id.user_change_password)
         editName=findViewById(R.id.edit_name)
@@ -58,13 +57,17 @@ class ProfileActivity : AppCompatActivity() {
         viewModel.userDataResponse.observe(this) { response ->
             if (response.isSuccessful) {
 
-                editName.setText(response.body()?.userInfo?.name.toString())
-                editEmail.setText(response.body()?.userInfo?.email.toString())
-                editPhone.setText(response.body()?.userInfo?.phone.toString())
-                editBranch.setText(response.body()?.userInfo?.branch.toString())
-                editYear.setText(response.body()?.userInfo?.year.toString())
+                Log.d("Res",response.body()?.UserInfo!!.name.toString())
 
-                Toast.makeText(applicationContext, "Success", Toast.LENGTH_LONG).show()
+                if(response.body() !==null) {
+                    editName.setText(response.body()?.UserInfo!!.name.toString())
+                    editEmail.setText(response.body()?.UserInfo!!.email.toString())
+                    editPhone.setText(response.body()?.UserInfo!!.phone.toString())
+                    editBranch.setText(response.body()?.UserInfo!!.branch.toString())
+                    editYear.setText(response.body()?.UserInfo!!.year.toString())
+
+                    Toast.makeText(applicationContext, "Success", Toast.LENGTH_LONG).show()
+                }
             } else {
                 Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
             }

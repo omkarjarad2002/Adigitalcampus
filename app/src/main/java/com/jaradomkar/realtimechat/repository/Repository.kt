@@ -11,7 +11,7 @@ class Repository {
         return RetrofitInstance.api.getPost()
     }
 
-    suspend fun pushEmailForUserInfo(post: userInfoData): Response<userInfoDataResponse>{
+    suspend fun pushEmailForUserInfo(post: userInfoData): Response<RegisterResponse>{
         return RetrofitInstance.api.pushEmailForUserInfo(post)
     }
 

@@ -21,10 +21,6 @@ data class userInfoData(
 )
 
 data class userInfoDataResponse(
-    val userInfo: UserInfo
-)
-
-data class UserInfo(
     val _id: String,
     val name:String,
     val email: String,
@@ -32,6 +28,11 @@ data class UserInfo(
     val branch: String,
     val year: Int,
     val date:String
+
+)
+
+data class RegisterResponse(
+    val UserInfo:userInfoDataResponse
 )
 
 data class EmailVerificationSignUpOtpResponse(

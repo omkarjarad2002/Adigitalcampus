@@ -20,7 +20,7 @@ interface SimpleApi {
     @POST("getUserProfileInfo")
     suspend fun pushEmailForUserInfo(
         @Body post: userInfoData
-    ): Response<userInfoDataResponse>
+    ): Response<RegisterResponse>
 
     @POST("emailSendForOtp")
     suspend fun pushEmailVerification(

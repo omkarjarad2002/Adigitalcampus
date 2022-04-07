@@ -83,7 +83,7 @@ class SignUp : AppCompatActivity() {
 
 
         backArrow.setOnClickListener{
-            val intent = Intent(this@SignUp,Login::class.java)
+            val intent = Intent(this@SignUp,MainActivity::class.java)
             startActivity(intent)
         }
 

@@ -11,24 +11,26 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/userimage"/>
+        android:src="@drawable/ic_baseline_person_pin_24"/>
 
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:textSize="20dp"
-        android:text="Omkar Jarad"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
+<!--    <EditText-->
+<!--        android:id="@+id/user_name"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingTop="8dp"-->
+<!--        android:textSize="20dp"-->
+<!--        android:hint="-&#45;&#45;"-->
+<!--        android:text=""-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textStyle="bold"/>-->
 
-    <TextView
-        android:id="@+id/user_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:text="omkarjarad28@gmail.com"/>
+<!--    <EditText-->
+<!--        android:id="@+id/user_email"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="16dp"-->
+<!--        android:hint="-&#45;&#45;"-->
+<!--        android:text=""/>-->
 
     <View
         android:layout_width="match_parent"
