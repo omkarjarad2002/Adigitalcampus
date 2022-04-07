@@ -58,12 +58,56 @@
         android:textColorHint="@color/black"
         android:layout_marginTop="50dp"
         />
+    <LinearLayout
+        android:id="@+id/changeotplayout"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/edit_email"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+        <Button
+            android:id="@+id/send_otp"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:text="Verify Email"
+            android:textSize="15sp"
+            android:textFontWeight="1"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            android:layout_below="@+id/edit_email"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/otp_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/changeotplayout"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="Enter otp sent to ur registered emailId"/>
+    <EditText
+        android:id="@+id/edit_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/otp_notice"
+        android:height="50dp"
+        android:paddingLeft="10dp"
+        android:hint="Enter Otp"
+        android:text=""
+        android:textColorHint="@color/black"
+        android:layout_marginTop="20dp"
+        />
 
     <EditText
         android:id="@+id/edit_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_email"
+        android:layout_below="@+id/edit_otp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"

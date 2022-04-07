@@ -3,11 +3,14 @@ package com.jaradomkar.realtimechat
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.jaradomkar.realtimechat.model.EmailVerificationData
+import com.jaradomkar.realtimechat.model.EmailVerificationDataForSignUp
 import com.jaradomkar.realtimechat.model.Post
 import com.jaradomkar.realtimechat.repository.Repository
 
@@ -20,6 +23,8 @@ class SignUp : AppCompatActivity() {
     private lateinit var editCPassword:EditText
     private lateinit var signupButtonR:Button
     private lateinit var backArrow:ImageView
+    private lateinit var sendOtp:Button
+    private lateinit var editOtp:EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -33,20 +38,49 @@ class SignUp : AppCompatActivity() {
         editCPassword = findViewById(R.id.edit_cpassword)
         signupButtonR = findViewById(R.id.edit_signup_btn_student)
         backArrow = findViewById(R.id.back_arrow)
+        sendOtp = findViewById(R.id.send_otp)
+        editOtp=findViewById(R.id.edit_otp)
 
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this@SignUp,viewModelFactory).get(MainViewModel::class.java)
 
-        signupButtonR.setOnClickListener{
 
+        //seding email verification otp
+        sendOtp.setOnClickListener{
             val email = editEmail.text.toString()
-            val password = editPassword.text.toString()
-            val cpassword = editCPassword.text.toString()
+            Log.e("Email",email)
 
-            val data = Post(email,password,cpassword)
-            viewModel.pushPost(data)
+            val data = EmailVerificationDataForSignUp(email)
+
+            viewModel.pushEmailVerificationForSignUp(data)
         }
+
+        //checking email verification response
+        viewModel.emailVerificationResponseForSignUp.observe(this){response->
+            if(response.isSuccessful){
+
+                Log.e("Respose",response.body()?.final__otp!!.toString())
+
+                Toast.makeText(applicationContext,response.body()?.final__otp!!.toString(),Toast.LENGTH_LONG).show()
+
+
+                signupButtonR.setOnClickListener{
+
+                    val otp = editOtp.text.toString()
+                    val email = editEmail.text.toString()
+                    val password = editPassword.text.toString()
+                    val cpassword = editCPassword.text.toString()
+
+                    val data = Post(otp,response.body()?.final__otp!!.toString(),email,password,cpassword)
+                    viewModel.pushPost(data)
+                }
+
+            }else{
+                Toast.makeText(applicationContext,"failure !",Toast.LENGTH_LONG).show()
+            }
+        }
+
 
         backArrow.setOnClickListener{
             val intent = Intent(this@SignUp,Login::class.java)
@@ -55,7 +89,7 @@ class SignUp : AppCompatActivity() {
 
         viewModel.myResponse.observe(this@SignUp) { responce ->
             if (responce.isSuccessful) {
-                val intent = Intent(this@SignUp, RegistrationActivity::class.java)
+                val intent = Intent(this@SignUp, MainActivity::class.java)
                 startActivity(intent)
 
                 Toast.makeText(this@SignUp, responce.toString(), Toast.LENGTH_LONG).show()

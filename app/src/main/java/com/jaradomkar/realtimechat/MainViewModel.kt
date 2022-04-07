@@ -16,6 +16,8 @@ class MainViewModel(private val repository: Repository):ViewModel() {
     val loginResponse: MutableLiveData<Response<LoginResponce>> = MutableLiveData()
     val registerResponse: MutableLiveData<Response<RegisterData>> = MutableLiveData()
     val emailVerificationResponse: MutableLiveData<Response<EmailVerificationOtpResponse>> = MutableLiveData()
+    val emailVerificationResponseForSignUp: MutableLiveData<Response<EmailVerificationSignUpOtpResponse>> = MutableLiveData()
+    val userDataResponse: MutableLiveData<Response<userInfoDataResponse>> = MutableLiveData()
     val changedPassResponse: MutableLiveData<Response<ChangedPasswordResponse>> = MutableLiveData()
 
     fun pushPost(post:Post){
@@ -31,10 +33,24 @@ class MainViewModel(private val repository: Repository):ViewModel() {
         }
     }
 
+    fun pushEmailForUserInfo(post:userInfoData){
+        viewModelScope.launch {
+            val response: Response<userInfoDataResponse> = repository.pushEmailForUserInfo(post)
+            userDataResponse.value = response
+        }
+    }
+
     fun pushEmailVerification(post:EmailVerificationData){
         viewModelScope.launch {
             val response: Response<EmailVerificationOtpResponse> = repository.pushEmailVerification(post)
             emailVerificationResponse.value = response
+        }
+    }
+
+    fun pushEmailVerificationForSignUp(post:EmailVerificationDataForSignUp){
+        viewModelScope.launch {
+            val response: Response<EmailVerificationSignUpOtpResponse> = repository.pushEmailVerificationForSignUp(post)
+            emailVerificationResponseForSignUp.value = response
         }
     }
 

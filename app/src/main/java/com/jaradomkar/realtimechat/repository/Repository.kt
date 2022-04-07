@@ -11,12 +11,20 @@ class Repository {
         return RetrofitInstance.api.getPost()
     }
 
+    suspend fun pushEmailForUserInfo(post: userInfoData): Response<userInfoDataResponse>{
+        return RetrofitInstance.api.pushEmailForUserInfo(post)
+    }
+
     suspend fun pushLoginData(post: LoginData): Response<LoginResponce>{
         return RetrofitInstance.api.pushLoginData(post)
     }
 
     suspend fun pushEmailVerification(post: EmailVerificationData): Response<EmailVerificationOtpResponse>{
         return RetrofitInstance.api.pushEmailVerification(post)
+    }
+
+    suspend fun pushEmailVerificationForSignUp(post: EmailVerificationDataForSignUp): Response<EmailVerificationSignUpOtpResponse>{
+        return RetrofitInstance.api.pushEmailVerificationForSignUp(post)
     }
 
     suspend fun pushPost(post: Post): Response<Post>{

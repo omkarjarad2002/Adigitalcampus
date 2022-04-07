@@ -17,12 +17,22 @@ interface SimpleApi {
         @Body post: Post
     ): Response<Post>
 
+    @POST("getUserProfileInfo")
+    suspend fun pushEmailForUserInfo(
+        @Body post: userInfoData
+    ): Response<userInfoDataResponse>
+
     @POST("emailSendForOtp")
     suspend fun pushEmailVerification(
         @Body post: EmailVerificationData
     ): Response<EmailVerificationOtpResponse>
 
-    @POST("emailSendForOtp")
+    @POST("emailSendForSignUpOtp")
+    suspend fun pushEmailVerificationForSignUp(
+        @Body post: EmailVerificationDataForSignUp
+    ): Response<EmailVerificationSignUpOtpResponse>
+
+    @POST("changePassword")
     suspend fun pushChangedPassword(
         @Body post: ChangePasswordData
     ): Response<ChangedPasswordResponse>

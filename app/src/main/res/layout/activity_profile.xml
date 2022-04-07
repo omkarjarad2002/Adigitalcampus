@@ -28,25 +28,25 @@
             android:textSize="18dp"
             android:padding="10dp"
             android:textStyle="bold"
-
             android:textColor="@color/white"
             android:gravity="center"/>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="50dp"
-        android:orientation="vertical">
 
-        <com.mikhaellopez.circularimageview.CircularImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:src="@drawable/userimage"/>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"-->
+<!--        android:paddingTop="50dp"-->
+<!--        android:orientation="vertical">-->
 
-    </LinearLayout>
+<!--        <com.mikhaellopez.circularimageview.CircularImageView-->
+<!--            android:layout_width="90dp"-->
+<!--            android:layout_height="90dp"-->
+<!--            android:src="@drawable/userimage"/>-->
+
+<!--    </LinearLayout>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,16 +60,19 @@
             android:layout_height="25dp"
             android:src="@drawable/ic_baseline_person_24"/>
         <TextView
+            android:id="@+id/edit_name_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name"
             android:textStyle="bold"
             android:textSize="18dp"
             android:layout_marginLeft="5dp"/>
-        <TextView
+        <EditText
+            android:id="@+id/edit_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Omkar Jarad"
+            android:hint="---"
+            android:text=""
             android:textStyle="bold"
             android:textSize="18dp"
             android:textColor="@color/black"
@@ -90,16 +93,19 @@
             android:layout_height="25dp"
             android:src="@drawable/ic_baseline_email_24"/>
         <TextView
+            android:id="@+id/edit_email_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email"
             android:textStyle="bold"
             android:textSize="18dp"
             android:layout_marginLeft="5dp"/>
-        <TextView
+        <EditText
+            android:id="@+id/edit_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="omkarjarad281@gmail.com"
+            android:hint="---"
+            android:text=""
             android:textStyle="bold"
             android:textSize="18dp"
             android:textColor="@color/black"
@@ -119,16 +125,19 @@
             android:layout_height="25dp"
             android:src="@drawable/ic_baseline_local_phone_24"/>
         <TextView
+            android:id="@+id/edit_phone_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone"
             android:textStyle="bold"
             android:textSize="18dp"
             android:layout_marginLeft="5dp"/>
-        <TextView
+        <EditText
+            android:id="@+id/edit_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="9373078258"
+            android:hint="---"
+            android:text=""
             android:textStyle="bold"
             android:textSize="18dp"
             android:textColor="@color/black"
@@ -148,16 +157,52 @@
             android:layout_height="25dp"
             android:src="@drawable/ic_baseline_batch_prediction_24"/>
         <TextView
+            android:id="@+id/edit_branch_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total Present"
+            android:text="Branch"
             android:textStyle="bold"
             android:textSize="18dp"
             android:layout_marginLeft="5dp"/>
-        <TextView
+        <EditText
+            android:id="@+id/edit_branch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="99%"
+            android:hint="---"
+            android:text=""
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="30dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_baseline_batch_prediction_24"/>
+        <TextView
+            android:id="@+id/edit_year_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginLeft="5dp"/>
+        <EditText
+            android:id="@+id/edit_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="---"
+            android:text=""
             android:textStyle="bold"
             android:textSize="18dp"
             android:textColor="@color/black"
@@ -167,7 +212,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_baseline_batch_prediction_24"/>
+        <TextView
+            android:id="@+id/edit_presenti_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Present"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginLeft="5dp"/>
+        <EditText
+            android:id="@+id/edit_presenti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0%"
+            android:text=""
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="30dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:orientation="vertical">
 

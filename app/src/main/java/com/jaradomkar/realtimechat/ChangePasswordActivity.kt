@@ -54,8 +54,6 @@ class ChangePasswordActivity : AppCompatActivity() {
         viewModel.emailVerificationResponse.observe(this@ChangePasswordActivity){response->
             if(response.isSuccessful){
 
-                Log.e("Respose",response.body()?.final__otp!!.toString())
-
                 Toast.makeText(applicationContext,response.body()?.final__otp!!.toString(),Toast.LENGTH_LONG).show()
 
                 val intent = Intent(this@ChangePasswordActivity,ChangePasswordSuccessActivity::class.java);

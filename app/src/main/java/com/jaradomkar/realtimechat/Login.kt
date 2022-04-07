@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.jaradomkar.realtimechat.model.LoginData
 import com.jaradomkar.realtimechat.model.Post
+import com.jaradomkar.realtimechat.model.userInfoData
 import com.jaradomkar.realtimechat.repository.Repository
 import kotlin.math.log
 
@@ -46,7 +47,6 @@ class Login : AppCompatActivity() {
             val data = LoginData(email,password)
 
             viewModel.pushLoginData(data)
-//            Toast.makeText(this,data.toString(),Toast.LENGTH_LONG).show()
         }
 
         forgotPassword.setOnClickListener{
@@ -63,20 +63,22 @@ class Login : AppCompatActivity() {
 //                Log.d("LoginRes",response.body()?.user!!.isadmin.toString())
 //                Log.d("LoginRes",response.body()?.user!!.isteacher.toString())
 
-                if(response.body()?.user!!.isadmin==true){
+                if (response.body()?.user!!.isadmin == true) {
 
                     val intent = Intent(this@Login, ManagementActivity::class.java)
                     startActivity(intent)
-                }else if(response.body()?.user!!.isteacher==true){
-                    val intent = Intent(this@Login,TeacherActivity::class.java)
+                } else if (response.body()?.user!!.isteacher == true) {
+                    val intent = Intent(this@Login, TeacherActivity::class.java)
                     startActivity(intent)
-                }else{
+                } else {
 
-                    val intent = Intent(this@Login,ProfileActivity::class.java)
+
+                    val intent = Intent(this@Login, ProfileActivity::class.java)
+                    intent.putExtra("email",editEmail.text.toString())
+
                     startActivity(intent)
 
                 }
-
             }
         }
 
