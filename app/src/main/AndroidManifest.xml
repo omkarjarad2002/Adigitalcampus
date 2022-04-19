@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RealtimeChat">
         <activity
+            android:name=".GettingPresentRollNumber"
+            android:exported="false" />
+        <activity
+            android:name=".CheckPresentiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Presentiboard"
+            android:exported="false" />
+        <activity
+            android:name=".AddTeacherActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChangePasswordSuccessActivity"
             android:exported="false" />
         <activity

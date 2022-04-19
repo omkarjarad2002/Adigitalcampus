@@ -1,5 +1,6 @@
 package com.jaradomkar.realtimechat
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,16 +31,11 @@ class MainActivity : AppCompatActivity() {
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this@MainActivity,viewModelFactory).get(MainViewModel::class.java)
 
-       viewModel.getPost()
-
         viewModel.myResponse2.observe(this@MainActivity){
             response->if(response.isSuccessful){
                 Toast.makeText(this,response.toString(),Toast.LENGTH_SHORT).show()
         }
         }
-
-
-
 
         //set navigation menu code
         val drawerLayout:DrawerLayout=findViewById(R.id.drawerLayout)
@@ -51,26 +47,56 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+
+
+        val sharedPref = getSharedPreferences("ACCESS_TOKEN",Context.MODE_PRIVATE) ?: return
+        val token = sharedPref.getString("ACCESS_TOKEN","");
+        Log.d("SRTOKEN",token!!.toString())
+
+
+
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.nav_home ->{
-                    val intent = Intent(this@MainActivity,MainActivity::class.java)
-                    startActivity(intent)
+
+                R.id.profile_image ->{
+
+                    //MAKE GET REQUEST FROM HERE
+                    viewModel.getRefresh(token);
+
+                    viewModel.refreshTokenResponse.observe(this){response->
+
+                        if (response.body()?.tokenUser!!.isadmin == true) {
+
+                            val intent = Intent(this, ManagementActivity::class.java)
+                            startActivity(intent)
+                        } else if (response.body()?.tokenUser!!.isteacher == true) {
+                            val intent = Intent(this, TeacherActivity::class.java)
+                            intent.putExtra("email",response.body()?.tokenUser!!.email!!.toString())
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(this, ProfileActivity::class.java)
+                            intent.putExtra("email",response.body()?.tokenUser!!.email!!.toString())
+
+//                    Log.d("token",response.body()?.token!!.toString())
+//                    Toast.makeText(applicationContext,response.body()?.token!!.toString(),Toast.LENGTH_LONG).show()
+                            startActivity(intent)
+
+                        }
+                    }
                 }
                 R.id.nav_event ->{
                     val intent = Intent(this@MainActivity,ScrollingActivity::class.java)
                     startActivity(intent)
                 }
-                R.id.nav_login ->{
-                    val intent = Intent(this@MainActivity,Login::class.java)
-                    startActivity(intent)
-                }
                 R.id.nav_delete ->{
-                    val intent = Intent(this@MainActivity,SignUp::class.java)
-                    startActivity(intent)
-                }
-                R.id.nav_setting -> {
-                    val intent = Intent(this@MainActivity,RegistrationActivity::class.java)
+                    val intent = Intent(this@MainActivity,Login::class.java)
+
+                    val sharedPref = getSharedPreferences( "ACCESS_TOKEN", Context.MODE_PRIVATE)
+                    with (sharedPref.edit()) {
+                        putString("ACCESS_TOKEN", "")
+                        apply()
+                    }
+
                     startActivity(intent)
                 }
             }

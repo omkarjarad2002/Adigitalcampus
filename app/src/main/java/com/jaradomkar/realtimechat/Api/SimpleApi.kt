@@ -3,24 +3,50 @@ package com.jaradomkar.realtimechat.Api
 import com.jaradomkar.realtimechat.model.*
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface SimpleApi {
 
-    @GET("posts")
-    suspend fun getPost(): Response<Post>
+
+
+    @GET("refreshtoken")
+    suspend fun getRefresh(
+        @Header("authorization") Authorisation:String
+    ): Response<tokenResponse>
+
+    @GET("getAllTeachers")
+    suspend fun getAllTeachers(
+    ): Response<ItemsViewModel>
+
+    @POST("getStudent")
+    suspend fun postClassInfo(
+        @Body post: presentiClassData
+    ): Response<ItemsViewModelStudents>
+
+    @POST("presentUpsent")
+    suspend fun setPresenti(
+        @Body post: setPresentData
+    ): Response<presentiClassIDresponse>
+
+    @POST("presentiInfo")
+    suspend fun postPresentiClassInfo(
+        @Body post: presentiClassInfo
+    ): Response<presentiClassIDresponse>
 
     @POST("signup")
     suspend fun pushPost(
         @Body post: Post
-    ): Response<Post>
+    ): Response<signUpResponse>
 
     @POST("getUserProfileInfo")
     suspend fun pushEmailForUserInfo(
         @Body post: userInfoData
     ): Response<RegisterResponse>
+
+    @POST("getOneTeacher")
+    suspend fun pushEmailForTeacherInfo(
+        @Body post: teacherInfoData
+    ): Response<teacherResponse>
 
     @POST("emailSendForOtp")
     suspend fun pushEmailVerification(
@@ -47,4 +73,18 @@ interface SimpleApi {
         @Body post: RegisterData
     ): Response<RegisterData>
 
+    @POST("addTeacher")
+    suspend fun pushTeacherData(
+        @Body post: RegisterTeacher
+    ):Response<RegisterTeacherResponse>
+
+    @POST("getTotalAttendance")
+    suspend fun pushRollNumber(
+        @Body post: totalAttendanceData
+    ):Response<totalAttendanceDataResponse>
+
+    @POST("getDayPresenti")
+    suspend fun sendPresentiData(
+        @Body post: presentiCheckData
+    ):Response<RollNumbers>
 }

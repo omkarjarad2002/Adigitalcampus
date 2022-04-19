@@ -1,5 +1,6 @@
 package com.jaradomkar.realtimechat
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -89,6 +90,13 @@ class SignUp : AppCompatActivity() {
 
         viewModel.myResponse.observe(this@SignUp) { responce ->
             if (responce.isSuccessful) {
+
+                val sharedPref = getSharedPreferences( "ACCESS_TOKEN", Context.MODE_PRIVATE)
+                with (sharedPref.edit()) {
+                    putString("ACCESS_TOKEN", responce.body()?.token!!.toString())
+                    apply()
+                }
+
                 val intent = Intent(this@SignUp, MainActivity::class.java)
                 startActivity(intent)
 

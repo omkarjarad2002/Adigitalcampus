@@ -11,7 +11,7 @@ import retrofit2.Response
 
 class MainViewModel(private val repository: Repository):ViewModel() {
 
-    val myResponse: MutableLiveData<Response<Post>> = MutableLiveData()
+    val myResponse: MutableLiveData<Response<signUpResponse>> = MutableLiveData()
     val myResponse2: MutableLiveData<Response<Post>> = MutableLiveData()
     val loginResponse: MutableLiveData<Response<LoginResponce>> = MutableLiveData()
     val registerResponse: MutableLiveData<Response<RegisterData>> = MutableLiveData()
@@ -19,13 +19,22 @@ class MainViewModel(private val repository: Repository):ViewModel() {
     val emailVerificationResponseForSignUp: MutableLiveData<Response<EmailVerificationSignUpOtpResponse>> = MutableLiveData()
     val userDataResponse: MutableLiveData<Response<RegisterResponse>> = MutableLiveData()
     val changedPassResponse: MutableLiveData<Response<ChangedPasswordResponse>> = MutableLiveData()
+    val teacherRegisterResponse: MutableLiveData<Response<RegisterTeacherResponse>> = MutableLiveData()
+    val teacherInfoResponse: MutableLiveData<Response<teacherResponse>> = MutableLiveData()
+    val refreshTokenResponse: MutableLiveData<Response<tokenResponse>> = MutableLiveData()
+    val teachersResponse: MutableLiveData<Response<ItemsViewModel>> = MutableLiveData()
+    val studentsResponse: MutableLiveData<Response<ItemsViewModelStudents>> = MutableLiveData()
+    val presentiClassInfoResponse: MutableLiveData<Response<presentiClassIDresponse>> = MutableLiveData()
+    val totalAttendanceDataResponse: MutableLiveData<Response<totalAttendanceDataResponse>> = MutableLiveData()
+    val presentiCheckDataResponseCheck: MutableLiveData<Response<RollNumbers>> = MutableLiveData()
 
     fun pushPost(post:Post){
         viewModelScope.launch {
-            val response: Response<Post> = repository.pushPost(post)
+            val response: Response<signUpResponse> = repository.pushPost(post)
             myResponse.value = response
         }
     }
+
     fun pushLoginData(post:LoginData){
         viewModelScope.launch {
             val response: Response<LoginResponce> = repository.pushLoginData(post)
@@ -37,6 +46,13 @@ class MainViewModel(private val repository: Repository):ViewModel() {
         viewModelScope.launch {
             val response: Response<RegisterResponse> = repository.pushEmailForUserInfo(post)
             userDataResponse.value = response
+        }
+    }
+
+    fun pushEmailForTeacherInfo(post:teacherInfoData){
+        viewModelScope.launch {
+            val response: Response<teacherResponse> = repository.pushEmailForTeacherInfo(post)
+            teacherInfoResponse.value = response
         }
     }
 
@@ -54,23 +70,79 @@ class MainViewModel(private val repository: Repository):ViewModel() {
         }
     }
 
-    fun getPost(){
-        viewModelScope.launch {
-            val response: Response<Post> = repository.getPost()
-            myResponse2.value = response
-        }
-    }
-
     fun pushRegisterData(post:RegisterData){
         viewModelScope.launch {
             val response: Response<RegisterData> = repository.pushRegisterData(post)
             registerResponse.value = response
         }
     }
+
     fun pushChangedPassword(post:ChangePasswordData){
         viewModelScope.launch {
             val response: Response<ChangedPasswordResponse> = repository.pushChangedPassword(post)
             changedPassResponse.value = response
+        }
+    }
+
+    fun pushTeacherData(post: RegisterTeacher){
+        viewModelScope.launch {
+            val response: Response<RegisterTeacherResponse> = repository.pushTeacherData(post)
+            teacherRegisterResponse.value = response
+        }
+    }
+
+    //getting refresh token response
+
+    fun getRefresh(token:String){
+        viewModelScope.launch {
+            val response: Response<tokenResponse> = repository.getRefresh(token)
+            refreshTokenResponse.value = response
+        }
+    }
+
+ //getting teachers response
+
+    fun getAllTeachers(){
+        viewModelScope.launch {
+            val response: Response<ItemsViewModel> = repository.getAllTeachers()
+            teachersResponse.value = response
+        }
+    }
+ //getting students response
+
+    fun postClassInfo(post: presentiClassData){
+        viewModelScope.launch {
+            val response: Response<ItemsViewModelStudents> = repository.postClassInfo(post)
+            studentsResponse.value = response
+        }
+    }
+    //getting students response
+
+    fun postPresentiClassInfo(post: presentiClassInfo){
+        viewModelScope.launch {
+            val response: Response<presentiClassIDresponse> = repository.postPresentiClassInfo(post)
+            presentiClassInfoResponse.value = response
+        }
+    }
+
+    fun setPresenti(post: setPresentData){
+        viewModelScope.launch {
+            val response: Response<presentiClassIDresponse> = repository.setPresenti(post)
+            presentiClassInfoResponse.value = response
+        }
+    }
+
+    fun pushRollNumber(post: totalAttendanceData){
+        viewModelScope.launch {
+            val response: Response<totalAttendanceDataResponse> = repository.pushRollNumber(post)
+            totalAttendanceDataResponse.value = response
+        }
+    }
+
+    fun sendPresentiData(post: presentiCheckData){
+        viewModelScope.launch {
+            val response: Response<RollNumbers> = repository.sendPresentiData(post)
+            presentiCheckDataResponseCheck.value = response
         }
     }
 

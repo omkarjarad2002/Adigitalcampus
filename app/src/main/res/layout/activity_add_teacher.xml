@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationActivity">
-
+    tools:context=".AddTeacherActivity">
     <LinearLayout
         android:id="@+id/back_arrow_layout"
         android:layout_width="wrap_content"
@@ -33,7 +32,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:hint="Registration"
+        android:hint="New Teacher"
         android:layout_toRightOf="@+id/back_arrow_layout"
         android:paddingLeft="10dp"
         android:textColorHint="@color/black" />
@@ -47,6 +46,7 @@
         android:paddingLeft="10dp"
         android:layout_below="@+id/registration_logo"
         android:hint="Name"
+        android:text=""
         android:textColorHint="@color/black"
         android:layout_marginTop="50dp"
         />
@@ -60,6 +60,7 @@
         android:height="50dp"
         android:paddingLeft="10dp"
         android:hint="Email"
+        android:text=""
         android:textColorHint="@color/black"
         android:layout_marginTop="20dp"
         />
@@ -74,11 +75,12 @@
         android:inputType="number"
         android:paddingLeft="10dp"
         android:hint="Phone"
+        android:text=""
         android:textColorHint="@color/black"
         android:layout_marginTop="20dp"
         />
     <EditText
-        android:id="@+id/edit_branch"
+        android:id="@+id/edit_department"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -86,20 +88,8 @@
         android:layout_below="@+id/edit_phone"
         android:height="50dp"
         android:paddingLeft="10dp"
-        android:hint="Branch"
-        android:textColorHint="@color/black"
-        android:layout_marginTop="20dp"
-        />
-    <EditText
-        android:id="@+id/edit_rollnumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_below="@+id/edit_branch"
-        android:height="50dp"
-        android:paddingLeft="10dp"
-        android:hint="Roll Number"
+        android:hint="Department"
+        android:text=""
         android:textColorHint="@color/black"
         android:layout_marginTop="20dp"
         />
@@ -109,25 +99,53 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_below="@+id/edit_rollnumber"
+        android:layout_below="@+id/edit_department"
         android:height="50dp"
-        android:inputType="number"
         android:paddingLeft="10dp"
-        android:hint="Year    ( 1st / 2nd / 3rd / 4th )"
+        android:hint="Teaching years"
+        android:text=""
+        android:textColorHint="@color/black"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/edit_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/edit_year"
+        android:height="50dp"
+        android:paddingLeft="10dp"
+        android:hint="Password"
+        android:text=""
+        android:textColorHint="@color/black"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/edit_cpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/edit_password"
+        android:height="50dp"
+        android:paddingLeft="10dp"
+        android:hint="Confirm Password"
+        android:text=""
         android:textColorHint="@color/black"
         android:layout_marginTop="20dp"
         />
     <Button
-        android:id="@+id/save_btn"
+        android:id="@+id/add_btn"
         android:layout_width="100dp"
         android:layout_height="45dp"
-        android:text="Save"
+        android:text="ADD"
         android:textSize="15sp"
         android:textFontWeight="1"
         android:textColor="@color/white"
-        android:background="@drawable/button_background"
+        android:background="@color/purple_500"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/edit_year"
+        android:layout_below="@+id/edit_cpassword"
         android:layout_marginTop="50dp"
         />
 

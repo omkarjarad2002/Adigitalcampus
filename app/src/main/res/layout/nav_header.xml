@@ -8,34 +8,5 @@
     android:background="@color/white"
     android:layout_marginLeft="16dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/ic_baseline_person_pin_24"/>
-
-<!--    <EditText-->
-<!--        android:id="@+id/user_name"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:paddingTop="8dp"-->
-<!--        android:textSize="20dp"-->
-<!--        android:hint="-&#45;&#45;"-->
-<!--        android:text=""-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textStyle="bold"/>-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/user_email"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textSize="16dp"-->
-<!--        android:hint="-&#45;&#45;"-->
-<!--        android:text=""/>-->
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/underLine"/>
 
 </LinearLayout>

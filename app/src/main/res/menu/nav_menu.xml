@@ -3,11 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+
     <item
-        android:id="@+id/nav_home"
-        android:title="Home"
-        android:icon="@drawable/ic_baseline_home_24"
-    />
+        android:title="Profile">
+        <menu>
+
+            <item
+                android:id="@+id/profile_image"
+                android:title="Profile"
+                android:icon="@drawable/ic_baseline_person_pin_24"
+                />
+        </menu>
+    </item>
 
     <item
         android:title="Notice board">
@@ -21,36 +28,25 @@
     </item>
 
     <item
-        android:title="Profile">
-        <menu>
-            <item
-                android:id="@+id/nav_login"
-                android:title="Login"
-                android:icon="@drawable/ic_baseline_login_24"
-                />
-        </menu>
-    </item>
-
-    <item
         android:title="Delete Account">
         <menu>
             <item
                 android:id="@+id/nav_delete"
-                android:title="Delete"
+                android:title="Log out"
                 android:icon="@drawable/ic_baseline_delete_24"
                 />
         </menu>
     </item>
 
-    <item
-        android:title="Setting">
-        <menu>
-            <item
-                android:id="@+id/nav_setting"
-                android:title="Setting"
-                android:icon="@drawable/ic_baseline_settings_24"
-                />
-        </menu>
-    </item>
+<!--    <item-->
+<!--        android:title="Setting">-->
+<!--        <menu>-->
+<!--            <item-->
+<!--                android:id="@+id/nav_setting"-->
+<!--                android:title="Setting"-->
+<!--                android:icon="@drawable/ic_baseline_settings_24"-->
+<!--                />-->
+<!--        </menu>-->
+<!--    </item>-->
 
 </menu>

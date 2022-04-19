@@ -7,12 +7,13 @@ import retrofit2.Response
 
 class Repository {
 
-    suspend fun getPost(): Response<Post>{
-        return RetrofitInstance.api.getPost()
-    }
 
     suspend fun pushEmailForUserInfo(post: userInfoData): Response<RegisterResponse>{
         return RetrofitInstance.api.pushEmailForUserInfo(post)
+    }
+
+    suspend fun pushEmailForTeacherInfo(post: teacherInfoData): Response<teacherResponse>{
+        return RetrofitInstance.api.pushEmailForTeacherInfo(post)
     }
 
     suspend fun pushLoginData(post: LoginData): Response<LoginResponce>{
@@ -27,7 +28,7 @@ class Repository {
         return RetrofitInstance.api.pushEmailVerificationForSignUp(post)
     }
 
-    suspend fun pushPost(post: Post): Response<Post>{
+    suspend fun pushPost(post: Post): Response<signUpResponse>{
         return RetrofitInstance.api.pushPost(post)
     }
 
@@ -35,9 +36,42 @@ class Repository {
         return RetrofitInstance.api.pushRegisterData(post)
     }
 
-
     suspend fun pushChangedPassword(post: ChangePasswordData): Response<ChangedPasswordResponse>{
         return RetrofitInstance.api.pushChangedPassword(post)
+    }
+
+    suspend fun pushTeacherData(post: RegisterTeacher): Response<RegisterTeacherResponse>{
+        return RetrofitInstance.api.pushTeacherData(post)
+    }
+
+    suspend fun getRefresh(token:String): Response<tokenResponse>{
+        return RetrofitInstance.api.getRefresh(token)
+    }
+    suspend fun getAllTeachers(): Response<ItemsViewModel>{
+        return RetrofitInstance.api.getAllTeachers()
+    }
+
+    //getting students from backend
+
+    suspend fun postClassInfo(post: presentiClassData):Response<ItemsViewModelStudents>{
+        return RetrofitInstance.api.postClassInfo(post)
+    }
+
+    suspend fun postPresentiClassInfo(post: presentiClassInfo):Response<presentiClassIDresponse>{
+        return RetrofitInstance.api.postPresentiClassInfo(post)
+    }
+
+    suspend fun setPresenti(post: setPresentData):Response<presentiClassIDresponse>{
+        return RetrofitInstance.api.setPresenti(post)
+    }
+
+    suspend fun pushRollNumber(post: totalAttendanceData):Response<totalAttendanceDataResponse>{
+        return RetrofitInstance.api.pushRollNumber(post)
+    }
+
+
+    suspend fun sendPresentiData(post: presentiCheckData):Response<RollNumbers>{
+        return RetrofitInstance.api.sendPresentiData(post)
     }
 
 }

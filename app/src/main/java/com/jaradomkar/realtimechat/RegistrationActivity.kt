@@ -22,6 +22,7 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var editPhone:EditText
     private lateinit var editBranch:EditText
     private lateinit var editYear:EditText
+    private lateinit var editRollNumber:EditText
     private lateinit var backArrow:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +37,7 @@ class RegistrationActivity : AppCompatActivity() {
         editPhone = findViewById(R.id.edit_phone)
         editBranch = findViewById(R.id.edit_branch)
         editYear = findViewById(R.id.edit_year)
+        editRollNumber = findViewById(R.id.edit_rollnumber)
         backArrow = findViewById(R.id.back_arrow)
 
 
@@ -50,10 +52,10 @@ class RegistrationActivity : AppCompatActivity() {
             val phone = editPhone.text.toString().toLong()
             val branch = editBranch.text.toString()
             val year = editYear.text.toString().toInt()
+            val rollNumber = editRollNumber.text.toString()
 
-            val data = RegisterData(name,email,phone,branch,year)
+            val data = RegisterData(name,email,phone,branch,year,rollNumber)
             viewModel.pushRegisterData(data)
-
         }
 
         backArrow.setOnClickListener{
