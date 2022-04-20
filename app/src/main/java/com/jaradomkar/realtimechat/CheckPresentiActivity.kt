@@ -53,8 +53,6 @@ class CheckPresentiActivity : AppCompatActivity() {
             val data = presentiCheckData(branch, year, subject,DayTime)
             viewModel.sendPresentiData(data)
 
-//            val intent=Intent(this,GettingPresentRollNumber::class.java);
-//            startActivity(intent)
 
         }
 
@@ -66,7 +64,6 @@ class CheckPresentiActivity : AppCompatActivity() {
                 // this creates a vertical layout Manager
                 recyclerview.layoutManager = LinearLayoutManager(this)
 
-                Log.e("ROLL",response.body()?.attendance!!.toString())
                 // This will pass the ArrayList to our Adapter
                 val adapter = CustomAdapterStudent(this,response.body()?.attendance!!)
 

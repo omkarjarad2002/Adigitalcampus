@@ -73,24 +73,24 @@ class AddTeacherActivity : AppCompatActivity() {
                     .show()
 
 
-                Toast.makeText(applicationContext,"Teacher Added Successfully!",Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext,"Teacher Added Successfully!",Toast.LENGTH_SHORT).show()
                 val intent = Intent(this,ManagementActivity::class.java);
                 startActivity(intent)
             }else{
 
                 //adding component of toast for success message
 
-                MaterialAlertDialogBuilder(this)
-                    .setTitle("Error")
-                    .setMessage("Error occurred during registration")
-                    .setPositiveButton("ok") { dialog, which ->
-                        // Respond to positive button press
-                        dialog.dismiss()
-                    }
-                    .show()
+//                MaterialAlertDialogBuilder(this)
+//                    .setTitle("Error")
+//                    .setMessage("Error occurred during registration")
+//                    .setPositiveButton("ok") { dialog, which ->
+//                        // Respond to positive button press
+//                        dialog.dismiss()
+//                    }
+//                    .show()
 
 
-                Toast.makeText(applicationContext,"ERROR",Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext,"Sorry, we failed to add new teacher !",Toast.LENGTH_SHORT).show()
             }
         }
     }

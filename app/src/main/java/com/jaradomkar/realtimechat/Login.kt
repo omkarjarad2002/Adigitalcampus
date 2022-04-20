@@ -70,15 +70,15 @@ class Login : AppCompatActivity() {
 
                 //adding component of toast for success message
 
-                MaterialAlertDialogBuilder(this)
-                    .setTitle("Success")
-                    .setMessage("Login Successful")
-                    .setPositiveButton("ok") { dialog, which ->
-                        // Respond to positive button press
-                        dialog.dismiss()
-                    }
-                    .show()
-
+//                MaterialAlertDialogBuilder(this)
+//                    .setTitle("Success")
+//                    .setMessage("Login Successful")
+//                    .setPositiveButton("ok") { dialog, which ->
+//                        // Respond to positive button press
+//                        dialog.dismiss()
+//                    }
+//                    .show()
+//
 
 
                 if (response.body()?.user!!.isadmin == true) {

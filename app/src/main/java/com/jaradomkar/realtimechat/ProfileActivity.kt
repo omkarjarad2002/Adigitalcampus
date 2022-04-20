@@ -67,8 +67,6 @@ class ProfileActivity : AppCompatActivity() {
         viewModel.userDataResponse.observe(this) { response ->
             if (response.isSuccessful) {
 
-                Log.d("Res",response.body()?.UserInfo!!.name.toString())
-
                 if(response.body() !==null) {
                     editName.setText(response.body()?.UserInfo!!.name.toString())
                     editEmail.setText(response.body()?.UserInfo!!.email.toString())
@@ -80,16 +78,14 @@ class ProfileActivity : AppCompatActivity() {
                     val data = totalAttendanceData((response.body()?.UserInfo!!.branch.toString()),response.body()?.UserInfo!!.rollNumber.toString())
                     viewModel.pushRollNumber(data)
 
-                    Toast.makeText(applicationContext, "Success", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "Success", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
             }
         }
 
         viewModel.totalAttendanceDataResponse.observe(this){response->
-
-            Toast.makeText(this,response.body()?.toString(),Toast.LENGTH_LONG).show()
 
             if(response.isSuccessful){
                 editPresenti.setText(response.body()?.totalPercentage!!.toString()+" %")

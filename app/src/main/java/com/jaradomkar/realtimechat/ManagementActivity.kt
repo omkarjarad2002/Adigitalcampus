@@ -51,7 +51,6 @@ class ManagementActivity : AppCompatActivity() {
 
         viewModel.teachersResponse.observe(this){response->
             if(response.isSuccessful){
-            Log.e("MTTEACHER",response.body()?.getTeachers.toString())
 
                 val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
 

@@ -61,11 +61,11 @@ class ChangePasswordSuccessActivity : AppCompatActivity() {
 
         viewModel.changedPassResponse.observe(this@ChangePasswordSuccessActivity){response->
             if(response.isSuccessful){
-                Toast.makeText(applicationContext, response.toString(),Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "Password Changed Successfully !",Toast.LENGTH_LONG).show()
                 val intent = Intent(this@ChangePasswordSuccessActivity,Login::class.java);
                 startActivity(intent);
             }else{
-                Toast.makeText(applicationContext,response.toString(),Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext,"Sorry,we failed to change your password !",Toast.LENGTH_LONG).show()
             }
         }
 
