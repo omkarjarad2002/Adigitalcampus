@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RealtimeChat">
         <activity
+            android:name=".DeleteTeacherActivity"
+            android:exported="false" />
+        <activity
             android:name=".GettingPresentRollNumber"
             android:exported="false" />
         <activity
