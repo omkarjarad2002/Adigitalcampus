@@ -74,8 +74,10 @@ class Presentiboard : AppCompatActivity() {
                             override fun onItemClick(position: Int) {
 
                                 for (i in 0 until 1) {
+                                    Toast.makeText(applicationContext,response.body()?.students!![position].rollNumber.toString(),Toast.LENGTH_SHORT).show()
                                     rollNumberArray.add(response.body()?.students!![position].rollNumber.toString())
                                 }
+
                             }
                         })
                     }
@@ -98,6 +100,7 @@ class Presentiboard : AppCompatActivity() {
                     val data = setPresentData(response.body()?._id.toString(),DayTime,rollNumberArray)
                     viewModel.setPresenti(data)
 
+                    Toast.makeText(applicationContext,"Presenti Saved !",Toast.LENGTH_SHORT).show()
                 }
             }
         }

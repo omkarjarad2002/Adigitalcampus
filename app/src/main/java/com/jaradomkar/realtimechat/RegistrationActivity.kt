@@ -59,7 +59,7 @@ class RegistrationActivity : AppCompatActivity() {
         }
 
         backArrow.setOnClickListener{
-            val intent = Intent(this@RegistrationActivity,SignUp::class.java);
+            val intent = Intent(this@RegistrationActivity,ProfileActivity::class.java);
             startActivity(intent)
         }
 
@@ -68,10 +68,10 @@ class RegistrationActivity : AppCompatActivity() {
                 val intent = Intent(this@RegistrationActivity, MainActivity::class.java)
                 startActivity(intent)
 
-                Toast.makeText(this@RegistrationActivity, response.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(this@RegistrationActivity, "User registration successful !", Toast.LENGTH_LONG).show()
 
             } else {
-                Toast.makeText(this@RegistrationActivity, response.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(this@RegistrationActivity, "Sorry, we failed to register your info !", Toast.LENGTH_LONG).show()
             }
         }
 

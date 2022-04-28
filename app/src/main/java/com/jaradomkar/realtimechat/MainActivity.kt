@@ -31,11 +31,6 @@ class MainActivity : AppCompatActivity() {
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this@MainActivity,viewModelFactory).get(MainViewModel::class.java)
 
-        viewModel.myResponse2.observe(this@MainActivity){
-            response->if(response.isSuccessful){
-                Toast.makeText(this,response.toString(),Toast.LENGTH_SHORT).show()
-        }
-        }
 
         //set navigation menu code
         val drawerLayout:DrawerLayout=findViewById(R.id.drawerLayout)
@@ -51,8 +46,6 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("ACCESS_TOKEN",Context.MODE_PRIVATE) ?: return
         val token = sharedPref.getString("ACCESS_TOKEN","");
-        Log.d("SRTOKEN",token!!.toString())
-
 
 
         navView.setNavigationItemSelectedListener {
@@ -61,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.profile_image ->{
 
                     //MAKE GET REQUEST FROM HERE
-                    viewModel.getRefresh(token);
+                    viewModel.getRefresh(token.toString());
 
                     viewModel.refreshTokenResponse.observe(this){response->
 
@@ -77,8 +70,6 @@ class MainActivity : AppCompatActivity() {
                             val intent = Intent(this, ProfileActivity::class.java)
                             intent.putExtra("email",response.body()?.tokenUser!!.email!!.toString())
 
-//                    Log.d("token",response.body()?.token!!.toString())
-//                    Toast.makeText(applicationContext,response.body()?.token!!.toString(),Toast.LENGTH_LONG).show()
                             startActivity(intent)
 
                         }

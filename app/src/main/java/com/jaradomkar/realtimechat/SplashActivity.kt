@@ -28,20 +28,17 @@ class SplashActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("ACCESS_TOKEN",Context.MODE_PRIVATE) ?: return
         val token = sharedPref.getString("ACCESS_TOKEN","");
-        Log.d("SRTOKEN",token!!.toString())
 
         //MAKE GET REQUEST FROM HERE
-        viewModel.getRefresh(token);
+        viewModel.getRefresh(token.toString());
 
         viewModel.refreshTokenResponse.observe(this){response->
 
             if(response.isSuccessful){
                 val intent = Intent(this,MainActivity::class.java)
-                Toast.makeText(applicationContext,"Success",Toast.LENGTH_LONG).show()
                 startActivity(intent)
             }else{
                 val intent = Intent(this,Login::class.java)
-                Toast.makeText(applicationContext,"Error",Toast.LENGTH_LONG).show()
                 startActivity(intent)
             }
         }

@@ -63,9 +63,6 @@ class SignUp : AppCompatActivity() {
 
                 Log.e("Respose",response.body()?.final__otp!!.toString())
 
-                Toast.makeText(applicationContext,response.body()?.final__otp!!.toString(),Toast.LENGTH_LONG).show()
-
-
                 signupButtonR.setOnClickListener{
 
                     val otp = editOtp.text.toString()
@@ -100,10 +97,10 @@ class SignUp : AppCompatActivity() {
                 val intent = Intent(this@SignUp, MainActivity::class.java)
                 startActivity(intent)
 
-                Toast.makeText(this@SignUp, responce.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(this@SignUp, "You have successful signup", Toast.LENGTH_LONG).show()
 
             } else {
-                Toast.makeText(this@SignUp, responce.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(this@SignUp, "Sorry, we failed to make your account !", Toast.LENGTH_LONG).show()
             }
         }
 

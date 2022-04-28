@@ -23,6 +23,7 @@ class ManagementActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     private lateinit var addTBtn:Button
     private lateinit var backArrow:ImageView
+    private lateinit var deleteTeacher:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
@@ -31,6 +32,7 @@ class ManagementActivity : AppCompatActivity() {
 
         addTBtn = findViewById(R.id.add_teacher)
         backArrow = findViewById(R.id.back_arrow)
+        deleteTeacher = findViewById(R.id.tv_delete_teacher)
 
         addTBtn.setOnClickListener {
             val intent = Intent(this, AddTeacherActivity::class.java)
@@ -42,6 +44,10 @@ class ManagementActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        deleteTeacher.setOnClickListener{
+            val intent = Intent(this,DeleteTeacherActivity::class.java)
+            startActivity(intent)
+        }
 
         val repository = Repository();
         val viewModelFactory = MainViewModelFactory(repository);
@@ -51,7 +57,6 @@ class ManagementActivity : AppCompatActivity() {
 
         viewModel.teachersResponse.observe(this){response->
             if(response.isSuccessful){
-            Log.e("MTTEACHER",response.body()?.getTeachers.toString())
 
                 val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
 

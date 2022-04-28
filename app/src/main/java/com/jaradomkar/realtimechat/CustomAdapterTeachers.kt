@@ -3,6 +3,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jaradomkar.realtimechat.R
@@ -12,6 +13,7 @@ class CustomAdapterTeachers(context: Context, private val items: ArrayList<stude
 
     private lateinit var mListener : onItemClickListener
     //creating an interface for onClickListener
+
 
     interface onItemClickListener{
 

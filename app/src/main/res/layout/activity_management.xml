@@ -49,6 +49,16 @@
             android:textColor="@color/white"
             android:padding="10dp"/>
 
+        <Button
+            android:id="@+id/tv_delete_teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/red"
+            android:text="Delete Teacher"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            android:padding="10dp"/>
+
     </LinearLayout>
 
     <LinearLayout

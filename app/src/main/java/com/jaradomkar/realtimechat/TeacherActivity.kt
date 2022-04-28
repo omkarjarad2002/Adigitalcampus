@@ -85,10 +85,10 @@ class TeacherActivity : AppCompatActivity() {
                     editDepartment.setText(response.body()?.TeacherInfo!!.department.toString())
                     editYear.setText(response.body()?.TeacherInfo!!.year.toString())
 
-                    Toast.makeText(applicationContext, "Success", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "Success", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
             }
         }
     }
