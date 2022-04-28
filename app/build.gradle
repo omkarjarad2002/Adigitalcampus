@@ -62,4 +62,8 @@ dependencies {
 
     // for adding cardview
     implementation 'androidx.cardview:cardview:1.0.0'
+
+    //for adding lotti files animations
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }

@@ -23,8 +23,8 @@ class Login : AppCompatActivity() {
     private lateinit var editEmail:EditText
     private lateinit var editPassword:EditText
     private lateinit var loginButton: Button
-    private lateinit var signupButton: Button
-    private lateinit var forgotPassword:Button
+    private lateinit var signupTextview: TextView
+    private lateinit var forgotPassword:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -36,8 +36,8 @@ class Login : AppCompatActivity() {
         editEmail = findViewById(R.id.login_email)
         editPassword = findViewById(R.id.login_password)
         loginButton = findViewById(R.id.login_btn)
-        signupButton = findViewById(R.id.signup_btn)
-        forgotPassword = findViewById(R.id.forgot_password)
+        signupTextview = findViewById(R.id.signup_txt)
+        forgotPassword = findViewById(R.id.forgotPassword_txt)
 
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
@@ -49,6 +49,8 @@ class Login : AppCompatActivity() {
             val data = LoginData(email,password)
 
             viewModel.pushLoginData(data)
+
+            Toast.makeText(this,"clicked on logn button ",Toast.LENGTH_LONG).show()
         }
 
         forgotPassword.setOnClickListener{
@@ -56,11 +58,8 @@ class Login : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
         viewModel.loginResponse.observe(this@Login) { response ->
             if (response.isSuccessful) {
-
 
                 val sharedPref = getSharedPreferences( "ACCESS_TOKEN", Context.MODE_PRIVATE)
                 with (sharedPref.edit()) {
@@ -78,7 +77,6 @@ class Login : AppCompatActivity() {
 //                        dialog.dismiss()
 //                    }
 //                    .show()
-//
 
 
                 if (response.body()?.user!!.isadmin == true) {
@@ -96,12 +94,11 @@ class Login : AppCompatActivity() {
 //                    Log.d("token",response.body()?.token!!.toString())
 //                    Toast.makeText(applicationContext,response.body()?.token!!.toString(),Toast.LENGTH_LONG).show()
                     startActivity(intent)
-
                 }
             }
         }
 
-        signupButton.setOnClickListener{
+        signupTextview.setOnClickListener{
             val intent = Intent(this@Login,SignUp::class.java)
             startActivity(intent)
         }
