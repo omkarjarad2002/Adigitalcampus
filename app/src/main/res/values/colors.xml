@@ -10,4 +10,6 @@
     <color name="underLine">#BDB8B8</color>
     <color name="green">#00ab1f</color>
     <color name="red">#c90d00</color>
+    <color name="light_gray">#E8EBEC</color>
+
 </resources>

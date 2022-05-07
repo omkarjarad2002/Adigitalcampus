@@ -7,6 +7,148 @@
     tools:context=".Login">
 
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/signin_animation"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginTop="15dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/login" />
+
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signin_animation"
+        android:layout_marginTop="50dp"
+        android:height="50dp"
+        android:background="@drawable/custom_input"
+        android:layout_centerHorizontal="true"
+        android:hint="Email"
+        android:paddingLeft="10dp"
+        android:text=""
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:height="50dp"
+        android:background="@drawable/custom_input"
+        android:hint="Password"
+        android:paddingLeft="10dp"
+        android:text=""
+        android:textColorHint="@color/black" />
+
+    <!--    <Button-->
+<!--        android:id="@+id/forgot_password"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:layout_below="@+id/login_password"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:text="Forgotten Password ?"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textFontWeight="1"-->
+<!--        android:textSize="15sp" />-->
+
+
+    <TextView
+        android:id="@+id/txt_for_forgotpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_password"
+        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="25dp"
+        android:text="Don't remember the password? "
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/forgotPassword_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="6dp"
+
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="23dp"
+        android:layout_toEndOf="@+id/txt_for_forgotpassword"
+        android:layout_toRightOf="@+id/txt_for_forgotpassword"
+        android:text="reset"
+        android:textColor="@color/red"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/txt_for_forgotpassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:background="@drawable/btn_primary"
+        android:padding="15sp"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textFontWeight="1"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/txt_for_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:layout_toStartOf="@id/txt_for_signup"
+        android:layout_toLeftOf="@id/txt_for_signup"
+        android:text="Didn't have a account?  "
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/signup_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_btn"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="148dp"
+
+        android:layout_toEndOf="@+id/txt_for_signup"
+        android:layout_toRightOf="@+id/txt_for_signup"
+        android:text="Sign Up"
+        android:textColor="@color/red"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <!--    <Button-->
+<!--        android:id="@+id/signup_btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="65dp"-->
+<!--        android:background="@drawable/btn_primary"-->
+<!--        android:padding="15sp"-->
+<!--        android:text="Sign Up"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textFontWeight="1"-->
+<!--        android:textSize="22sp" />-->
+=======
 
     <ImageView
         android:id="@+id/signin_logo"
