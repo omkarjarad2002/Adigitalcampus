@@ -27,6 +27,7 @@ class MainViewModel(private val repository: Repository):ViewModel() {
     val presentiClassInfoResponse: MutableLiveData<Response<presentiClassIDresponse>> = MutableLiveData()
     val totalAttendanceDataResponse: MutableLiveData<Response<totalAttendanceDataResponse>> = MutableLiveData()
     val presentiCheckDataResponseCheck: MutableLiveData<Response<RollNumbers>> = MutableLiveData()
+    val deleteTeacherResponse: MutableLiveData<Response<DeleteTeacherResponse>> = MutableLiveData()
 
     fun pushPost(post:Post){
         viewModelScope.launch {
@@ -145,5 +146,13 @@ class MainViewModel(private val repository: Repository):ViewModel() {
             presentiCheckDataResponseCheck.value = response
         }
     }
+
+    fun sendTeacherId(post: PostTeacherId){
+        viewModelScope.launch {
+            val response: Response<DeleteTeacherResponse> = repository.sendTeacherId(post)
+            deleteTeacherResponse.value = response
+        }
+    }
+
 
 }

@@ -165,13 +165,27 @@
             android:layout_marginLeft="30dp"
             android:gravity="center"/>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/eight_layout"
+        android:layout_below="@id/search_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_horizontal"
+            android:text="Click on roll number to remove from present !">
 
+        </TextView>
+    </LinearLayout>
     <LinearLayout
         android:layout_marginTop="20dp"
         android:id="@+id/fifth_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/search_button">
+        android:layout_below="@id/eight_layout">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"

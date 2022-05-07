@@ -87,4 +87,11 @@ interface SimpleApi {
     suspend fun sendPresentiData(
         @Body post: presentiCheckData
     ):Response<RollNumbers>
+
+    //making request to delete teacher
+    @POST("deleteTeacher")
+    suspend fun sendTeacherId(
+        @Body post: PostTeacherId
+    ):Response<DeleteTeacherResponse>
+
 }

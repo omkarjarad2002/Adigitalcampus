@@ -1,5 +1,7 @@
 package com.jaradomkar.realtimechat.model
 
+import android.os.Message
+
 data class Post(
     val otp: String,
     val otp_code: String,
@@ -85,6 +87,7 @@ data class EmailVerificationSignUpOtpResponse(
     val email:String,
     val final__otp:String
 )
+
 data class EmailVerificationOtpResponse(
     val email:String,
     val final__otp:String
@@ -194,3 +197,15 @@ data class presentiCheckData(
 data class RollNumbers(
     val attendance:ArrayList<String>
 )
+
+//sending teacherId to delete teacher
+
+data class PostTeacherId(
+    val email: String
+)
+
+//getting response of deleting teacher
+data class DeleteTeacherResponse(
+    val message: String
+)
+

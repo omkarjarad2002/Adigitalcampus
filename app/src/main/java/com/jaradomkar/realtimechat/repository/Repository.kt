@@ -4,6 +4,7 @@ import com.jaradomkar.realtimechat.Api.RetrofitInstance
 import com.jaradomkar.realtimechat.model.*
 import retrofit2.Call
 import retrofit2.Response
+import retrofit2.Retrofit
 
 class Repository {
 
@@ -69,9 +70,13 @@ class Repository {
         return RetrofitInstance.api.pushRollNumber(post)
     }
 
-
     suspend fun sendPresentiData(post: presentiCheckData):Response<RollNumbers>{
         return RetrofitInstance.api.sendPresentiData(post)
+    }
+
+    //delete teacher route
+    suspend fun sendTeacherId(post: PostTeacherId):Response<DeleteTeacherResponse>{
+        return RetrofitInstance.api.sendTeacherId(post)
     }
 
 }

@@ -35,7 +35,7 @@ class ChangePasswordActivity : AppCompatActivity() {
 
 
         backArrow.setOnClickListener {
-            val intent = Intent(this@ChangePasswordActivity, MainActivity::class.java);
+            val intent = Intent(this@ChangePasswordActivity, Login::class.java);
             startActivity(intent)
         }
 
@@ -60,14 +60,14 @@ class ChangePasswordActivity : AppCompatActivity() {
 
                 //adding component of toast for success message
 
-                MaterialAlertDialogBuilder(this)
-                    .setTitle("Success")
-                    .setMessage("Login Successful")
-                    .setPositiveButton("ok") { dialog, which ->
-                        // Respond to positive button press
-                        dialog.dismiss()
-                    }
-                    .show()
+//                MaterialAlertDialogBuilder(this)
+//                    .setTitle("Success")
+//                    .setMessage("Login Successful")
+//                    .setPositiveButton("ok") { dialog, which ->
+//                        // Respond to positive button press
+//                        dialog.dismiss()
+//                    }
+//                    .show()
 
                 Toast.makeText(
                     applicationContext,

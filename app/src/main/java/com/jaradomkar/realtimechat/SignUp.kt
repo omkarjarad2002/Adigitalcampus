@@ -50,7 +50,6 @@ class SignUp : AppCompatActivity() {
         //seding email verification otp
         sendOtp.setOnClickListener{
             val email = editEmail.text.toString()
-            Log.e("Email",email)
 
             val data = EmailVerificationDataForSignUp(email)
 
@@ -60,9 +59,7 @@ class SignUp : AppCompatActivity() {
         //checking email verification response
         viewModel.emailVerificationResponseForSignUp.observe(this){response->
             if(response.isSuccessful){
-
-                Log.e("Respose",response.body()?.final__otp!!.toString())
-
+                Toast.makeText(applicationContext,"Check your email for Otp !!",Toast.LENGTH_SHORT).show()
                 signupButtonR.setOnClickListener{
 
                     val otp = editOtp.text.toString()
@@ -81,7 +78,7 @@ class SignUp : AppCompatActivity() {
 
 
         backArrow.setOnClickListener{
-            val intent = Intent(this@SignUp,MainActivity::class.java)
+            val intent = Intent(this@SignUp,Login::class.java)
             startActivity(intent)
         }
 

@@ -2,6 +2,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +10,6 @@ import com.jaradomkar.realtimechat.R
 import com.jaradomkar.realtimechat.model.getTeachers
 
 class CustomAdapterStudent(val context:Context, val items: ArrayList<String>) : RecyclerView.Adapter<CustomAdapterStudent.ViewHolder>() {
-
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,6 +35,5 @@ class CustomAdapterStudent(val context:Context, val items: ArrayList<String>) : 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val rollNumber: TextView = itemView.findViewById(R.id.present_rollNumber)
-
     }
 }

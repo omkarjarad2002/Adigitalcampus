@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.jaradomkar.realtimechat.model.LoginData
 import com.jaradomkar.realtimechat.model.presentiCheckData
 import com.jaradomkar.realtimechat.repository.Repository
 
@@ -71,7 +72,7 @@ class CheckPresentiActivity : AppCompatActivity() {
                 recyclerview.adapter = adapter
 
             }else{
-                Toast.makeText(this,"ERROR", Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Error", Toast.LENGTH_LONG).show()
             }
         }
 

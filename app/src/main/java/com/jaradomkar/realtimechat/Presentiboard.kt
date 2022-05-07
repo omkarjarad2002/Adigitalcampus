@@ -57,7 +57,6 @@ class Presentiboard : AppCompatActivity() {
 
             viewModel.studentsResponse.observe(this){response->
                 if(response.isSuccessful){
-                    if(response.isSuccessful){
 
                         val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
 
@@ -78,9 +77,13 @@ class Presentiboard : AppCompatActivity() {
                                     rollNumberArray.add(response.body()?.students!![position].rollNumber.toString())
                                 }
 
+                                for (j in 0 until 2) {
+                                    Toast.makeText(applicationContext,response.body()?.students!![position].rollNumber.toString(),Toast.LENGTH_SHORT).show()
+                                    rollNumberArray.remove(response.body()?.students!![position].rollNumber.toString())
+                                }
+
                             }
                         })
-                    }
                 }
             }
         }
@@ -105,6 +108,4 @@ class Presentiboard : AppCompatActivity() {
             }
         }
     }
-
-
 }

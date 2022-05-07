@@ -41,7 +41,7 @@
 
         <Button
             android:id="@+id/add_teacher"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="@color/green"
             android:text="Add New Teacher"
@@ -51,7 +51,7 @@
 
         <Button
             android:id="@+id/tv_delete_teacher"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="@color/red"
             android:text="Delete Teacher"
