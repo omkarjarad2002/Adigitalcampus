@@ -15,9 +15,6 @@
             android:name=".DeleteTeacherActivity"
             android:exported="false" />
         <activity
-            android:name=".GettingPresentRollNumber"
-            android:exported="false" />
-        <activity
             android:name=".CheckPresentiActivity"
             android:exported="false" />
         <activity

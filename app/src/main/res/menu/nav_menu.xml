@@ -16,16 +16,16 @@
         </menu>
     </item>
 
-    <item
-        android:title="Notice board">
-        <menu>
-            <item
-                android:id="@+id/nav_event"
-                android:title="Notices"
-                android:icon="@drawable/ic_baseline_event_24"
-                />
-        </menu>
-    </item>
+<!--    <item-->
+<!--        android:title="Notice board">-->
+<!--        <menu>-->
+<!--            <item-->
+<!--                android:id="@+id/nav_event"-->
+<!--                android:title="Notices"-->
+<!--                android:icon="@drawable/ic_baseline_event_24"-->
+<!--                />-->
+<!--        </menu>-->
+<!--    </item>-->
 
     <item
         android:title="Delete Account">
@@ -37,16 +37,5 @@
                 />
         </menu>
     </item>
-
-<!--    <item-->
-<!--        android:title="Setting">-->
-<!--        <menu>-->
-<!--            <item-->
-<!--                android:id="@+id/nav_setting"-->
-<!--                android:title="Setting"-->
-<!--                android:icon="@drawable/ic_baseline_settings_24"-->
-<!--                />-->
-<!--        </menu>-->
-<!--    </item>-->
 
 </menu>

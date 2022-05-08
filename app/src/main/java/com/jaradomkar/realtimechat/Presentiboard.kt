@@ -2,6 +2,7 @@ package com.jaradomkar.realtimechat
 
 import CustomAdapterTeachers
 import android.content.Intent
+import android.icu.text.Transliterator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -23,7 +24,7 @@ class Presentiboard : AppCompatActivity() {
     private lateinit var presentiTime: EditText
     private lateinit var studentYear:EditText
     private lateinit var studentSubject:EditText
-    private var rollNumberArray:ArrayList<String> = ArrayList()
+    private var rollNumberArray:ArrayList<students> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -63,8 +64,11 @@ class Presentiboard : AppCompatActivity() {
                         // this creates a vertical layout Manager
                         recyclerview.layoutManager = LinearLayoutManager(this)
 
+                        rollNumberArray=
+                            response.body()?.students!!
+
                         // This will pass the ArrayList to our Adapter
-                        val adapter = CustomAdapterTeachers(this,response.body()?.students!!)
+                        val adapter = CustomAdapterTeachers(this, rollNumberArray)
 
                         // Setting the Adapter with the recyclerview
                         recyclerview.adapter = adapter
@@ -72,16 +76,9 @@ class Presentiboard : AppCompatActivity() {
                         adapter.setOnItemClickListener(object :CustomAdapterTeachers.onItemClickListener{
                             override fun onItemClick(position: Int) {
 
-                                for (i in 0 until 1) {
-                                    Toast.makeText(applicationContext,response.body()?.students!![position].rollNumber.toString(),Toast.LENGTH_SHORT).show()
-                                    rollNumberArray.add(response.body()?.students!![position].rollNumber.toString())
-                                }
+                                rollNumberArray.removeAt(position);
 
-                                for (j in 0 until 2) {
-                                    Toast.makeText(applicationContext,response.body()?.students!![position].rollNumber.toString(),Toast.LENGTH_SHORT).show()
-                                    rollNumberArray.remove(response.body()?.students!![position].rollNumber.toString())
-                                }
-
+                                adapter.notifyDataSetChanged()
                             }
                         })
                 }
@@ -95,13 +92,20 @@ class Presentiboard : AppCompatActivity() {
 
         SavePresentiBtn.setOnClickListener{
 
+            val presentRollNumbers : ArrayList<String> = rollNumberArray.map { it.rollNumber } as ArrayList<String>
+
             viewModel.presentiClassInfoResponse.observe(this){response->
                 if(response.isSuccessful) {
 
                     val DayTime = presentiTime.text.toString()
 
-                    val data = setPresentData(response.body()?._id.toString(),DayTime,rollNumberArray)
+                    val data = setPresentData(response.body()?._id.toString(),DayTime,presentRollNumbers)
                     viewModel.setPresenti(data)
+
+                    val intent = Intent(this,TeacherActivity::class.java);
+                    startActivity(intent)
+
+                    finish()
 
                     Toast.makeText(applicationContext,"Presenti Saved !",Toast.LENGTH_SHORT).show()
                 }

@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
@@ -22,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
     lateinit var toggle: ActionBarDrawerToggle
+//    lateinit var dropdown:AutoCompleteTextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this@MainActivity,viewModelFactory).get(MainViewModel::class.java)
-
 
         //set navigation menu code
         val drawerLayout:DrawerLayout=findViewById(R.id.drawerLayout)
@@ -75,10 +73,10 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
-                R.id.nav_event ->{
-                    val intent = Intent(this@MainActivity,ScrollingActivity::class.java)
-                    startActivity(intent)
-                }
+//                R.id.nav_event ->{
+//                    val intent = Intent(this@MainActivity,ScrollingActivity::class.java)
+//                    startActivity(intent)
+//                }
                 R.id.nav_delete ->{
                     val intent = Intent(this@MainActivity,Login::class.java)
 

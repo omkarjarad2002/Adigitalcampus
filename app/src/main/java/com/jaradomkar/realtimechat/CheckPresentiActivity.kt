@@ -26,7 +26,6 @@ class CheckPresentiActivity : AppCompatActivity() {
     private lateinit var studentYear:EditText
     private lateinit var studentSubject:EditText
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
         super.onCreate(savedInstanceState)
@@ -45,7 +44,6 @@ class CheckPresentiActivity : AppCompatActivity() {
 
         getPresentiBtn.setOnClickListener{
 
-
             val branch = studentClass.text.toString()
             val year = studentYear.text.toString().toInt()
             val subject = studentSubject.text.toString()
@@ -53,7 +51,6 @@ class CheckPresentiActivity : AppCompatActivity() {
 
             val data = presentiCheckData(branch, year, subject,DayTime)
             viewModel.sendPresentiData(data)
-
 
         }
 
@@ -70,6 +67,8 @@ class CheckPresentiActivity : AppCompatActivity() {
 
                 // Setting the Adapter with the recyclerview
                 recyclerview.adapter = adapter
+
+
 
             }else{
                 Toast.makeText(this,"Error", Toast.LENGTH_LONG).show()
