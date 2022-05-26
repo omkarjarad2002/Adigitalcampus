@@ -88,9 +88,12 @@ class ProfileActivity : AppCompatActivity() {
         viewModel.totalAttendanceDataResponse.observe(this){response->
 
             if(response.isSuccessful){
-                editPresenti.setText(response.body()?.totalPercentage!!.toString()+" %")
+                if(response.body()?.totalPercentage != null){
+                    editPresenti.setText(response.body()?.totalPercentage!!.toString()+" %")
+                }else{
+                    editPresenti.setText("0%")
+                }
             }
-
         }
 
         backArrow.setOnClickListener{
@@ -102,8 +105,6 @@ class ProfileActivity : AppCompatActivity() {
             val intent = Intent(this@ProfileActivity,ChangePasswordActivity::class.java);
             startActivity(intent)
         }
-
-
     }
 }
 

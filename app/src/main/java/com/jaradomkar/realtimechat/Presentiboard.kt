@@ -64,8 +64,7 @@ class Presentiboard : AppCompatActivity() {
                         // this creates a vertical layout Manager
                         recyclerview.layoutManager = LinearLayoutManager(this)
 
-                        rollNumberArray=
-                            response.body()?.students!!
+                        rollNumberArray= response.body()?.students!!
 
                         // This will pass the ArrayList to our Adapter
                         val adapter = CustomAdapterTeachers(this, rollNumberArray)
@@ -76,7 +75,7 @@ class Presentiboard : AppCompatActivity() {
                         adapter.setOnItemClickListener(object :CustomAdapterTeachers.onItemClickListener{
                             override fun onItemClick(position: Int) {
 
-                                rollNumberArray.removeAt(position);
+                                rollNumberArray.removeAt(position)
 
                                 adapter.notifyDataSetChanged()
                             }

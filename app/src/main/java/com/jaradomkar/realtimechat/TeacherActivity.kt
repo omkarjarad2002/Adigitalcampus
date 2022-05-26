@@ -27,18 +27,15 @@ class TeacherActivity : AppCompatActivity() {
     private lateinit var editDepartment: EditText
     private lateinit var editYear: EditText
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teacher)
 
-
         val repository = Repository();
         val viewModelFactory = MainViewModelFactory(repository);
         viewModel = ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java);
-
 
         val teacherData = teacherInfoData(intent.getStringExtra("email").toString())
         viewModel.pushEmailForTeacherInfo(teacherData)
@@ -76,7 +73,6 @@ class TeacherActivity : AppCompatActivity() {
 
         viewModel.teacherInfoResponse.observe(this) { response ->
             if (response.isSuccessful) {
-
 
                 if(response.body() !==null) {
                     editName.setText(response.body()?.TeacherInfo!!.name.toString())
